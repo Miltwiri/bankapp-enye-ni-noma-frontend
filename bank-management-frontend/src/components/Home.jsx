@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getUserProfile, getMyAccounts, createNewAccount, depositFunds, withdrawFunds, transferFunds, getUserTransactions} from '../service/authService';
+import './Home.css';
+import { Link } from 'react-router-dom';
 
 function Home({ token, onLogout }) {
   const [user, setUser] = useState(null);
@@ -100,7 +102,9 @@ function Home({ token, onLogout }) {
   };
 
   if (!token) {
-    return <div>Please login or register</div>;
+    return  <div>
+    Please <Link to="/login">login</Link> or <Link to="/register">register</Link>
+  </div>
   }
 
   return (
